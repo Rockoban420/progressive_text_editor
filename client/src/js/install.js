@@ -1,13 +1,12 @@
 
 window.addEventListener('beforeinstallprompt', (e) => {
-    window.deferredPrompt = e;
     e.preventDefault();
-    console.log(deferredPrompt);
+    this.deferredPrompt = e;
 });
 
 const butInstall = document.getElementById('installBtn');
 butInstall.addEventListener('click', async () => {
-    const { deferredPrompt } = window;
+    const { deferredPrompt } = this;
     if (deferredPrompt !== null) {
         console.log(deferredPrompt);
         deferredPrompt.prompt();
